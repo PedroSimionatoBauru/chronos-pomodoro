@@ -61,16 +61,18 @@ export function MainForm() {
           type="text"
           placeholder="Digite aqui"
           ref={taskNameInput}
+          disabled={!!state.activeTask}
         />
       </div>
 
       <div className="formRow">
         <p>Próximo intervalo é de 25 min</p>
       </div>
-
-      <div className="formRow">
-        <Cycles />
-      </div>
+      {state.currentCycle > 0 && ( // Isso é um IF
+        <div className="formRow">
+          <Cycles />
+        </div>
+      )}
 
       <div className="formRow">
         <DefaultButton icon={<PlayCircleIcon />} />
