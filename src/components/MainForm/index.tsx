@@ -9,7 +9,6 @@ import { getNextCycle } from "../../utils/getNextCycle";
 import { getNextCycleType } from "../../utils/getNextCycleType";
 import { taskActionsTypes } from "../../contexts/TaskContext/taskActions";
 import { Tips } from "../Tips";
-import { toast } from "react-toastify";
 import { showMessage } from "../../adapters/showMessage";
 
 export function MainForm() {
@@ -47,6 +46,8 @@ export function MainForm() {
   }
 
   function handleInterruptTask() {
+    showMessage.dismiss();
+    showMessage.error("Tareda Interrompida!");
     dispatch({ type: taskActionsTypes.INTERRUPT_TASK });
   }
 
